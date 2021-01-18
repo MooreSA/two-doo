@@ -1,0 +1,31 @@
+.sidebar {
+    width: 100%;
+    height: 100%;
+    background-color: $alternate-bg-color;
+    border-right: 1px solid $border-color;
+
+    &__new-project {
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        @include lightbtn
+    }
+
+    &__projectlist {
+        display: flex;
+        height: 100%;
+
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
+    &__project {
+        display: block;
+        margin-top: 10px;
+        @include lightbtn;
+        
+        &--active {
+            background-color: lighten($backgroundcolor, 20);
+        }
+    }
+}

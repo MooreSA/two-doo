@@ -1,0 +1,61 @@
+.todo-modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+
+    &__content {
+        background-color: $backgroundcolor;
+        width: 75%;
+        
+        margin: 15% auto;
+        border: 1px solid $alternate-bg-color;
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    &__header {
+        text-align: left;
+        font-size: $font-size * 2;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: 20% auto;
+        gap: 5px;
+    }
+
+    // &__label {
+    // }
+
+    &__input {
+        background-color: $alternate-bg-color;
+        border: 0;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    &__btns {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    &__discard {
+        background-color: red;
+        max-width: 100px;   
+        margin: 5px 20px;
+    }
+
+    &__submit {
+        background-color: green;
+        max-width: 100px;
+        margin: 5px 20px;
+    }
+}
+

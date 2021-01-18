@@ -1,0 +1,47 @@
+$backgroundcolor: #5B2850;
+$alternate-bg-color: #300F30;
+
+$border-color: #FFDDEE;
+
+$font-size: 14px;
+$font-color: #FFDDEE;
+$font-family: sans-serif;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: $font-color;
+    font-family: $font-family;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: $backgroundcolor;
+}
+
+@mixin shadowbox($right, $down, $spread, $blur, $color) {
+    -webkit-box-shadow: $right $down $spread $blur $color;
+    box-shadow: $right $down $spread $blur $color;
+}
+
+@mixin darkbtn {
+    background-color: $alternate-bg-color;
+    &:hover {
+        @include shadowbox(0, 0, 5px, 1px, mix($backgroundcolor, $alternate-bg-color))
+    }
+}
+
+@mixin lightbtn {
+    background-color: $backgroundcolor;
+    &:hover {
+        @include shadowbox(0, 0, 5px, 1px, mix($alternate-bg-color, $backgroundcolor))
+    }
+}
+
+#root, .page {
+    height: 100%;
+}

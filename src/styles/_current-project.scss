@@ -1,0 +1,33 @@
+.current-project {
+    height: 100%;
+    width: 100%;
+
+    padding: 10px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+    }
+
+    &__title {
+        font-size: $font-size * 1.5;
+        font-weight: bold;
+    }
+
+    &__desc {
+    }
+
+    &__edit {
+        @include darkbtn;
+        flex: 2 1 auto;
+        max-width: 75px;
+        margin: auto;
+        // background-color: $alternate-bg-color;
+    }
+}

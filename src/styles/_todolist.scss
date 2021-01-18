@@ -1,0 +1,10 @@
+.todolist {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &__add-todo {
+        margin-top: 10px;
+        @include darkbtn;
+    }
+}
