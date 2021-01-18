@@ -2,25 +2,23 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Todolist from './components/Todolist';
-import TodoModal from './components/TodoModal';
 import ProjectHandler from './js/ProjectHandler';
+import Modal from './components/Modal';
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
   const [projectHandler, setProjectHandler] = useState(new ProjectHandler());
-  // eslint-disable-next-line no-unused-vars
   const [activeProjectIndex, setActiveProject] = useState(0);
   const [todoModalFlag, setTodoModalFlag] = useState(false);
+  const [projectModalFlag, setProjectModalFlag] = useState(false);
 
   const addTodo = () => {
     setTodoModalFlag(true);
   };
 
-  // TODO
-  // const addProject = () => {
-  //   // Open a modal
-  //   // Take info for new project
-  // };
+  const addProject = () => {
+    setProjectModalFlag(true);
+  };
 
   const changeProject = (event) => {
     const newIndex = event.target.dataset.projectId;
@@ -36,7 +34,8 @@ const App = () => {
 
   return (
     <div className="page">
-      {todoModalFlag ? <TodoModal /> : null}
+      { todoModalFlag ? <Modal todoFlag /> : null }
+      { projectModalFlag ? <Modal projectFlag /> : null }
       <Header
         project={projectHandler.projects[activeProjectIndex]}
         editProject={editProject}
@@ -46,6 +45,7 @@ const App = () => {
           projects={projectHandler.projects}
           activeIndex={activeProjectIndex}
           changeProject={changeProject}
+          addProject={addProject}
         />
         <Todolist
           project={projectHandler.projects[activeProjectIndex]}
