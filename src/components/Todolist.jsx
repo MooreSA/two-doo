@@ -2,7 +2,7 @@ import React from 'react';
 import Todo from './Todo';
 
 const Todolist = (props) => {
-  const { project, addTodo } = props;
+  const { project, addTodo, editTodo } = props;
   const { todos } = project;
   return (
     <div className="todolist">
@@ -10,6 +10,7 @@ const Todolist = (props) => {
         <Todo
           todo={todo}
           index={index}
+          editTodo={editTodo}
           // eslint-disable-next-line react/no-array-index-key
           key={index}
         />

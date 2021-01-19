@@ -5,8 +5,16 @@ class ProjectHandler {
     this.projects = projects;
   }
 
-  appendProject(newProject = (new Project())) {
+  appendProject(projectInfo = ({ title: 'Project', desc: 'Project Description', todos: [] })) {
+    const newProject = new Project(projectInfo);
     this.projects.push(newProject);
+    return new ProjectHandler(this.projects);
+  }
+
+  editProject(projectIndex, projectInfo) {
+    const { todos } = this.projects[projectIndex];
+    const newProject = new Project({ ...projectInfo, todos });
+    this.projects.splice(projectIndex, 1, newProject);
     return new ProjectHandler(this.projects);
   }
 

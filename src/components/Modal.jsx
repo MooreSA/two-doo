@@ -3,22 +3,36 @@ import ProjectModal from './ProjectModal';
 import TodoModal from './TodoModal';
 
 const Modal = (props) => {
-  // eslint-disable-next-line no-unused-vars
-  const { todoFlag, projectFlag } = props;
-
+  const {
+    todoFlag, projectFlag, discardModal, saveNewTodo,
+    saveNewProject, saveEditProject, index, saveEditTodo,
+  } = props;
+  // display the todo Modal
   if (todoFlag) {
     const { todoInfo = {} } = props;
     return (
       <div className="modal">
-        <TodoModal todoInfo={todoInfo} />
+        <TodoModal
+          todoInfo={todoInfo}
+          index={index}
+          discardTodo={discardModal}
+          saveNewTodo={saveNewTodo}
+          saveEditTodo={saveEditTodo}
+        />
       </div>
     );
   }
+  const { projectInfo = {} } = props;
+  // display the project modal
   if (projectFlag) {
-    const { projectInfo = {} } = props;
     return (
       <div className="modal">
-        <ProjectModal projectInfo={projectInfo} />
+        <ProjectModal
+          projectInfo={projectInfo}
+          discardProject={discardModal}
+          saveNewProject={saveNewProject}
+          saveEditProject={saveEditProject}
+        />
       </div>
     );
   }

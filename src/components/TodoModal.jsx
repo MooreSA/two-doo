@@ -1,14 +1,32 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import moment from 'moment';
 
 const TodoModal = (props) => {
-  const { todoInfo } = props;
+  const {
+    todoInfo, index, discardTodo, saveNewTodo, saveEditTodo,
+  } = props;
   const { title = 'Todo', desc = 'Description', dueDate = new Date() } = todoInfo;
-  const [newTodo, setNewTodo] = useState({ title, desc, dueDate });
+  const [newTodo, setNewTodo] = useState({ title, desc, dueDate: moment(dueDate).format('YYYY-MM-DD') });
 
+  // input values are saved in a state
+  // change them through firing an event on changing the input
   const handleInput = (event) => {
     const { value, name } = event.target;
     setNewTodo({ ...newTodo, [name]: value });
+  };
+
+  // const saveTodo = () => {
+  //   // have to send the raw unformatted date to the Todo class
+  //   saveNewTodo({ ...newTodo, dueDate: moment(dueDate) });
+  // };
+
+  const handleSubmit = () => {
+    if (saveNewTodo) {
+      saveNewTodo({ ...newTodo, dueDate: moment(dueDate) });
+      return;
+    }
+    saveEditTodo(index, { ...newTodo, dueDate: moment(newTodo.dueDate) });
   };
 
   return (
@@ -44,8 +62,8 @@ const TodoModal = (props) => {
         />
       </div>
       <div className="modal__btns">
-        <button type="button" className="btn modal__submit">Submit</button>
-        <button type="button" className="btn modal__discard">Discard</button>
+        <button type="button" className="btn modal__submit" onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn modal__discard" onClick={discardTodo}>Discard</button>
       </div>
     </div>
   );

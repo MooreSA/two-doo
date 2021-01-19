@@ -10,8 +10,10 @@ const Sidebar = (props) => {
     <div className="sidebar">
       <button type="button" className="btn sidebar__new-project" onClick={addProject}>New Project</button>
       <div className="sidebar__projectlist">
+        {/* map all the projects into buttons on the sidebar */}
         { projects.map((project, index) => {
           if (index === activeIndex) {
+            // highlight the current project
             return (
               <button
                 type="button"

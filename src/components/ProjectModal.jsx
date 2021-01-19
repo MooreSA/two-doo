@@ -2,13 +2,30 @@
 import React, { useState } from 'react';
 
 const ProjectModal = (props) => {
-  const { projectInfo } = props;
-  const { title = 'Todo List', desc = 'Chores to be done' } = projectInfo;
+  const {
+    projectInfo, discardProject, saveNewProject, saveEditProject,
+  } = props;
+  const { title = 'Todo List', desc = 'Chores to be done', todos } = projectInfo;
   const [newProject, setNewProject] = useState({ title, desc });
 
+  // lets the user change the various inputs
+  // must be done like this since the inputs are states
   const handleInput = (event) => {
     const { value, name } = event.target;
     setNewProject({ ...newProject, [name]: value });
+  };
+
+  // passes the new project up the chain to App
+  // const newProjectEvent = () => {
+  //   saveNewProject({ title, desc, todos: [] });
+  // };
+
+  const submitPress = () => {
+    if (saveNewProject) {
+      saveNewProject({ title, desc, todos: [] });
+      return;
+    }
+    saveEditProject({ ...newProject, todos });
   };
 
   return (
@@ -35,8 +52,8 @@ const ProjectModal = (props) => {
         />
       </div>
       <div className="modal__btns">
-        <button type="button" className="btn modal__submit">Submit</button>
-        <button type="button" className="btn modal__discard">Discard</button>
+        <button type="button" className="btn modal__submit" onClick={submitPress}>Submit</button>
+        <button type="button" className="btn modal__discard" onClick={discardProject}>Discard</button>
       </div>
     </div>
   );

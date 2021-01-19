@@ -73,3 +73,10 @@ test('PH can edit a todo', () => {
   testHandler.editTodo(0, 0, testTodo);
   expect(testHandler.projects[0].todos[0]).toEqual(testTodo);
 });
+
+test('Project Handler can edit project details', () => {
+  let testHandler = new ProjectHandler();
+  testHandler = testHandler.editProject(0, { title: 'testTitle', desc: 'testDesc' });
+  expect(testHandler.projects[0].title).toBe('testTitle');
+  expect(testHandler.projects[0].desc).toBe('testDesc');
+});

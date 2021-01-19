@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { test, expect } from '@jest/globals';
+import moment from 'moment';
 import Todo from '../js/Todo';
 
 test('Todo can be created', () => {
@@ -20,16 +21,16 @@ test('Todo can set default values', () => {
   expect(todo.active).toEqual(true);
   expect(todo.title).toEqual('New Todo');
   expect(todo.desc).toEqual('Todo Description');
-  expect(todo.dueDate).toBe(new Date().toLocaleDateString());
+  expect(todo.dueDate).toBeDefined();
 });
 
 test('Todo can set non-default values', () => {
   const args = {
-    active: false, title: 'testTitle', desc: 'testDESC123!', dueDate: new Date(2004, 1, 20),
+    active: false, title: 'testTitle', desc: 'testDESC123!', dueDate: moment('2004-01-20', 'YYYY-MM-DD'),
   };
   const todo = new Todo(args);
   expect(todo.active).toEqual(false);
   expect(todo.title).toEqual('testTitle');
   expect(todo.desc).toEqual('testDESC123!');
-  expect(todo.dueDate).toEqual(new Date(2004, 1, 20).toLocaleDateString());
+  expect(todo.dueDate).toEqual(moment('2004-01-20', 'YYYY-MM-DD'));
 });
