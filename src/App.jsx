@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Todolist from './components/Todolist';
@@ -55,7 +55,7 @@ const App = () => {
     setProjectHandler(
       projectHandler.removeTodo(activeProjectIndex, todoIndex),
     );
-    discardModal();
+    // discardModal();
   };
 
   // appends the project to the app
@@ -63,14 +63,14 @@ const App = () => {
     setProjectHandler(
       projectHandler.appendProject(projectInfo),
     );
-    discardModal();
+    // discardModal();
   };
 
   const saveEditProject = (projectInfo) => {
     setProjectHandler(
       projectHandler.editProject(activeProjectIndex, projectInfo),
     );
-    discardModal();
+    // discardModal();
   };
 
   const deleteProject = () => {
@@ -78,7 +78,7 @@ const App = () => {
       setProjectHandler(projectHandler.deleteProject(activeProjectIndex));
       setActiveProject(0);
     }
-    discardModal();
+    // discardModal();
   };
 
   // swaps the current active project
@@ -86,6 +86,10 @@ const App = () => {
     const newIndex = parseInt(event.target.dataset.projectId, 10);
     setActiveProject(newIndex);
   };
+
+  useEffect(() => {
+    discardModal();
+  }, [projectHandler]);
 
   return (
     <div className="page">
@@ -101,7 +105,7 @@ const App = () => {
       { editTodoFlag
         ? (
           <Modal
-            todoFunctions={{ saveEditTodo, deleteTodo }}
+            todoFunctions={{ saveEditTodo, deleteTodo, discardModal }}
             index={editTodoFlag.index}
             todoInfo={editTodoFlag.todoInfo}
           />

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Domine');
+
 $backgroundcolor: #5B2850;
 $alternate-bg-color: #300F30;
 
@@ -5,7 +8,8 @@ $border-color: #FFDDEE;
 
 $font-size: 14px;
 $font-color: #FFDDEE;
-$font-family: sans-serif;
+$font-family: 'Lato', sans-serif;
+$font-emphasis: 'Domine', serif;
 
 * {
     box-sizing: border-box;
