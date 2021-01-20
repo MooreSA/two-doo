@@ -7,6 +7,7 @@
     
     height: 60px;
     width: 90%;
+    max-width: 90%;
     margin-top: 10px;
     border-radius: 15px;
     border: 1px solid black;
@@ -40,22 +41,27 @@
 
     &__title {
         flex: 1 1 auto;
-        line-height: 20px;
+        min-width: 40px;
         padding-top: 20px;
         padding-bottom: 20px;
+        max-height: 60px;
+        line-height: 20px;
+        overflow: hidden;
     }
 
     &__description {
         flex: 4 1 auto;
-        line-height: 20px;
+        max-height: 60px;
         padding-top: 20px;
         padding-bottom: 20px;
+        overflow: hidden;
     }
 
     &__due-date {
         flex: 1 0 auto;        
-        line-height: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
+        line-height: 20px;
+        overflow: hidden;
     }
 }

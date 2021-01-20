@@ -2,6 +2,8 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
 
     &__add-todo {
         margin-top: 10px;

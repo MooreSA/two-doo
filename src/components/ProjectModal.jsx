@@ -3,8 +3,17 @@ import React, { useState } from 'react';
 
 const ProjectModal = (props) => {
   const {
-    projectInfo, discardProject, saveNewProject, saveEditProject,
+    projectInfo,
+    projectFunctions,
   } = props;
+
+  const {
+    saveNewProject,
+    saveEditProject,
+    deleteProject,
+    discardModal,
+  } = projectFunctions;
+
   const { title = 'Todo List', desc = 'Chores to be done', todos } = projectInfo;
   const [newProject, setNewProject] = useState({ title, desc });
 
@@ -22,7 +31,7 @@ const ProjectModal = (props) => {
 
   const submitPress = () => {
     if (saveNewProject) {
-      saveNewProject({ title, desc, todos: [] });
+      saveNewProject({ ...newProject, todos: [] });
       return;
     }
     saveEditProject({ ...newProject, todos });
@@ -53,7 +62,10 @@ const ProjectModal = (props) => {
       </div>
       <div className="modal__btns">
         <button type="button" className="btn modal__submit" onClick={submitPress}>Submit</button>
-        <button type="button" className="btn modal__discard" onClick={discardProject}>Discard</button>
+        <button type="button" className="btn modal__discard" onClick={discardModal}>Discard</button>
+        {deleteProject
+          ? <button type="button" className="btn modal__delete" onClick={deleteProject}>Delete</button>
+          : null}
       </div>
     </div>
   );

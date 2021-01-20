@@ -49,13 +49,19 @@
     }
 
     &__discard {
-        background-color: red;
+        background-color: orangered;
         max-width: 100px;   
         margin: 5px 20px;
     }
 
     &__submit {
         background-color: green;
+        max-width: 100px;
+        margin: 5px 20px;
+    }
+
+    &__delete {
+        background-color: red;
         max-width: 100px;
         margin: 5px 20px;
     }

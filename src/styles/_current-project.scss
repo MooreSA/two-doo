@@ -1,6 +1,8 @@
 .current-project {
     height: 100%;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 
     padding: 10px;
 
@@ -12,15 +14,22 @@
     &__info {
         display: flex;
         flex-direction: column;
-        flex: 1 0 auto;
+        flex: 1 1 auto;
+        max-width: 90%;
+        max-height: 100%;
     }
 
     &__title {
         font-size: $font-size * 1.5;
         font-weight: bold;
+        flex: 1 1 content;
+        max-height: 100%;
+        max-width: 100%;
     }
 
     &__desc {
+        max-width: 100%;
+        max-height: 100%;
     }
 
     &__edit {

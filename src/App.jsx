@@ -51,6 +51,13 @@ const App = () => {
     discardModal();
   };
 
+  const deleteTodo = (todoIndex) => {
+    setProjectHandler(
+      projectHandler.removeTodo(activeProjectIndex, todoIndex),
+    );
+    discardModal();
+  };
+
   // appends the project to the app
   const saveNewProject = (projectInfo) => {
     setProjectHandler(
@@ -66,6 +73,14 @@ const App = () => {
     discardModal();
   };
 
+  const deleteProject = () => {
+    if (projectHandler.projects.length > 1) {
+      setProjectHandler(projectHandler.deleteProject(activeProjectIndex));
+      setActiveProject(0);
+    }
+    discardModal();
+  };
+
   // swaps the current active project
   const changeProject = (event) => {
     const newIndex = parseInt(event.target.dataset.projectId, 10);
@@ -78,22 +93,17 @@ const App = () => {
       { todoModalFlag
         ? (
           <Modal
-            todoFlag
+            todoFunctions={{ saveNewTodo, discardModal }}
             discardModal={discardModal}
-            saveNewTodo={saveNewTodo}
           />
         )
         : null }
       { editTodoFlag
         ? (
           <Modal
-            todoFlag
-            discardModal={discardModal}
+            todoFunctions={{ saveEditTodo, deleteTodo }}
             index={editTodoFlag.index}
             todoInfo={editTodoFlag.todoInfo}
-            saveEditTodo={saveEditTodo}
-            // TODO
-            // todoInfo{todoInfo}
           />
         )
         : null }
@@ -101,18 +111,14 @@ const App = () => {
       { projectModalFlag
         ? (
           <Modal
-            projectFlag
-            discardModal={discardModal}
-            saveNewProject={saveNewProject}
+            projectFunctions={{ saveNewProject, discardModal }}
           />
         )
         : null }
       { editProjectFlag
         ? (
           <Modal
-            projectFlag
-            discardModal={discardModal}
-            saveEditProject={saveEditProject}
+            projectFunctions={{ saveEditProject, deleteProject, discardModal }}
             projectInfo={projectHandler.projects[activeProjectIndex]}
           />
         )

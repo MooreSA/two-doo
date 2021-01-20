@@ -4,34 +4,33 @@ import TodoModal from './TodoModal';
 
 const Modal = (props) => {
   const {
-    todoFlag, projectFlag, discardModal, saveNewTodo,
-    saveNewProject, saveEditProject, index, saveEditTodo,
+    todoInfo = {},
+    todoFunctions,
+    index,
+    projectFunctions,
+    projectInfo = {},
   } = props;
+
   // display the todo Modal
-  if (todoFlag) {
-    const { todoInfo = {} } = props;
+  if (todoFunctions) {
     return (
       <div className="modal">
         <TodoModal
           todoInfo={todoInfo}
           index={index}
-          discardTodo={discardModal}
-          saveNewTodo={saveNewTodo}
-          saveEditTodo={saveEditTodo}
+          todoFunctions={todoFunctions}
         />
       </div>
     );
   }
-  const { projectInfo = {} } = props;
+
   // display the project modal
-  if (projectFlag) {
+  if (projectFunctions) {
     return (
       <div className="modal">
         <ProjectModal
           projectInfo={projectInfo}
-          discardProject={discardModal}
-          saveNewProject={saveNewProject}
-          saveEditProject={saveEditProject}
+          projectFunctions={projectFunctions}
         />
       </div>
     );

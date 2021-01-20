@@ -3,10 +3,19 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 const TodoModal = (props) => {
+  // get the props
   const {
-    todoInfo, index, discardTodo, saveNewTodo, saveEditTodo,
+    todoInfo,
+    index,
+    todoFunctions,
   } = props;
+  // deconstruct todoFunctions
+  const {
+    saveNewTodo, saveEditTodo, deleteTodo, discardModal,
+  } = todoFunctions;
+
   const { title = 'Todo', desc = 'Description', dueDate = new Date() } = todoInfo;
+
   const [newTodo, setNewTodo] = useState({ title, desc, dueDate: moment(dueDate).format('YYYY-MM-DD') });
 
   // input values are saved in a state
@@ -16,17 +25,18 @@ const TodoModal = (props) => {
     setNewTodo({ ...newTodo, [name]: value });
   };
 
-  // const saveTodo = () => {
-  //   // have to send the raw unformatted date to the Todo class
-  //   saveNewTodo({ ...newTodo, dueDate: moment(dueDate) });
-  // };
-
   const handleSubmit = () => {
     if (saveNewTodo) {
       saveNewTodo({ ...newTodo, dueDate: moment(dueDate) });
       return;
     }
     saveEditTodo(index, { ...newTodo, dueDate: moment(newTodo.dueDate) });
+  };
+
+  const handleDelete = (event) => {
+    // I honestly don't know what this does
+    event.preventDefault();
+    deleteTodo(index);
   };
 
   return (
@@ -62,8 +72,11 @@ const TodoModal = (props) => {
         />
       </div>
       <div className="modal__btns">
-        <button type="button" className="btn modal__submit" onClick={handleSubmit}>Submit</button>
-        <button type="button" className="btn modal__discard" onClick={discardTodo}>Discard</button>
+        <button type="submit" className="btn modal__submit" onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn modal__discard" onClick={discardModal}>Discard</button>
+        { deleteTodo
+          ? <button type="button" className="btn modal__delete" onClick={handleDelete}>Delete</button>
+          : null}
       </div>
     </div>
   );
