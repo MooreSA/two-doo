@@ -132,6 +132,7 @@ const App = () => {
           project={projectHandler.projects[activeProjectIndex]}
           addTodo={addTodo}
           editTodo={editTodo}
+          saveEditTodo={saveEditTodo}
         />
       </div>
     </div>

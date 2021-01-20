@@ -1,6 +1,10 @@
 .sidebar {
     width: 100%;
     height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+
     background-color: $alternate-bg-color;
     border-right: 1px solid $border-color;
 

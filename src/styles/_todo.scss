@@ -12,23 +12,50 @@
     border: 1px solid black;
     padding: 10px;
 
+    &--done {
+        background-color: darken($color: $backgroundcolor, $amount: 10);
+
+        & > span {
+            text-decoration: line-through;
+        }
+    }
+
     &__check {
         flex: 0 0 auto;
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: lighten($color: $backgroundcolor, $amount: 50);
+        outline: none;
+
+        &--checked {
+            margin-bottom: 5px;
+            background-color: darken($backgroundcolor, 10);
+        }
+    }
+
+    & > span {
+        cursor: pointer;
     }
 
     &__title {
         flex: 1 1 auto;
+        line-height: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     &__description {
         flex: 4 1 auto;
-    }
-
-    &__priority {
-        flex: 0 0 auto;
+        line-height: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     &__due-date {
-        flex: 1 0 auto;
+        flex: 1 0 auto;        
+        line-height: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
