@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/two-doo/static/css/main.aa6d83c4.chunk.css",
-    "main.js": "/two-doo/static/js/main.f57c1ee9.chunk.js",
-    "main.js.map": "/two-doo/static/js/main.f57c1ee9.chunk.js.map",
+    "main.css": "/two-doo/static/css/main.3332e8e9.chunk.css",
+    "main.js": "/two-doo/static/js/main.14dbb509.chunk.js",
+    "main.js.map": "/two-doo/static/js/main.14dbb509.chunk.js.map",
     "runtime-main.js": "/two-doo/static/js/runtime-main.a8377a78.js",
     "runtime-main.js.map": "/two-doo/static/js/runtime-main.a8377a78.js.map",
     "static/js/2.0ff1bd1e.chunk.js": "/two-doo/static/js/2.0ff1bd1e.chunk.js",
     "static/js/2.0ff1bd1e.chunk.js.map": "/two-doo/static/js/2.0ff1bd1e.chunk.js.map",
     "index.html": "/two-doo/index.html",
-    "static/css/main.aa6d83c4.chunk.css.map": "/two-doo/static/css/main.aa6d83c4.chunk.css.map",
-    "static/js/2.0ff1bd1e.chunk.js.LICENSE.txt": "/two-doo/static/js/2.0ff1bd1e.chunk.js.LICENSE.txt"
+    "static/css/main.3332e8e9.chunk.css.map": "/two-doo/static/css/main.3332e8e9.chunk.css.map",
+    "static/js/2.0ff1bd1e.chunk.js.LICENSE.txt": "/two-doo/static/js/2.0ff1bd1e.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/two-doo/static/media/NunitoSans-Regular.87d92665.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.a8377a78.js",
     "static/js/2.0ff1bd1e.chunk.js",
-    "static/css/main.aa6d83c4.chunk.css",
-    "static/js/main.f57c1ee9.chunk.js"
+    "static/css/main.3332e8e9.chunk.css",
+    "static/js/main.14dbb509.chunk.js"
   ]
 }
