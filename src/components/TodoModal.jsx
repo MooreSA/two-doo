@@ -41,7 +41,7 @@ const TodoModal = (props) => {
 
   return (
     <div className="modal__content">
-      <div className="modal__header">Todo:</div>
+      <div className="modal__header">Todo</div>
       <div className="modal__form">
         <label className="modal__label" htmlFor="todo-title-input">Title:</label>
         <input

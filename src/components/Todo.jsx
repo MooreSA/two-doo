@@ -36,10 +36,7 @@ const Todo = (props) => {
         aria-checked="true"
         aria-label="Toggle Todo"
         checked
-      >
-        🗸
-      </div>
-
+      />
     );
   } else {
     todoClasses = 'todo';
@@ -54,7 +51,6 @@ const Todo = (props) => {
         aria-label="Toggle Todo"
       />
     );
-    // eslint-disable-next-line quotes
   }
 
   return (

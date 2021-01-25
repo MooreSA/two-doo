@@ -1,30 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Domine');
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/NunitoSans-Regular.ttf');
+};
 
-$backgroundcolor: #5B2850;
-$alternate-bg-color: #300F30;
+$color-success: #7b9450;
+$color-warning: #f88418;
+$color-danger: #f44336;
 
-$border-color: #FFDDEE;
+// Background color
+$base-color: #FAF9F9;
+// use this to bring attention. It contrasts with everything else
+$light-accent-color: #E9B365;
+// The "identity" of the page. Use this for branding
+$main-brand-color: #E95551;
+// Darker accent color - may not need to use
+// $dark-accent-color: #E3DDDD;
+$dark-accent-color: #98979C;
+// This could be the BG for dark themes.
+// Otherwise it's text
+$dark-shade: #44404A;
+// Just barely visible
+$border-color: darken($base-color, 10);
+$border-emphasis: darken($base-color, 20);
 
 $font-size: 14px;
 $font-color: #FFDDEE;
-$font-family: 'Lato', sans-serif;
-$font-emphasis: 'Domine', serif;
+$font-family: 'Nunito', sans-serif;
+$font-emphasis: 'Nunito', sans-serif;
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: $font-color;
-    font-family: $font-family;
-}
+@mixin flex-item($direction, $wrap) {
+    display: flex;
 
-html, body {
-    height: 100%;
-}
-
-body {
-    background-color: $backgroundcolor;
+    flex-flow: $direction $wrap;
 }
 
 @mixin shadowbox($right, $down, $spread, $blur, $color) {
@@ -32,10 +41,34 @@ body {
     box-shadow: $right $down $spread $blur $color;
 }
 
-@mixin darkbtn {
-    background-color: $alternate-bg-color;
+@mixin btn($btn-color) {
+    background-color: $btn-color;
+    border: 1px solid darken($btn-color, 5);
     &:hover {
-        @include shadowbox(0, 0, 5px, 1px, mix($backgroundcolor, $alternate-bg-color))
+        @include shadowbox(0, 0, 5px, 1px, mix($btn-color, $base-color))
+    }
+    &:active {
+        box-shadow: inset 0 0 1px 1px darken($btn-color, 10);
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+
+
+@mixin darkbtn {
+    background-color: $light-accent-color;
+    &:hover {
+        @include shadowbox(0, 0, 5px, 1px, mix($light-accent-color, $base-color))
     }
 }
 
@@ -44,13 +77,4 @@ body {
     &:hover {
         @include shadowbox(0, 0, 5px, 1px, mix($alternate-bg-color, $backgroundcolor))
     }
-}
-
-#root, .page {
-    height: 100vh;
-}
-
-.page {
-    display: grid;
-    grid-template-rows: 65px 1fr;
 }

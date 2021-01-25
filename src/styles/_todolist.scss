@@ -3,10 +3,11 @@
     flex-flow: column nowrap;
     align-items: center;
     max-width: 100%;
+    padding: 0px 10px;
     overflow: hidden;
 
     &__add-todo {
         margin-top: 10px;
-        @include darkbtn;
+        @include btn($light-accent-color)
     }
 }

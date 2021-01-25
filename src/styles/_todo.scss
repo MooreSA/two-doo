@@ -6,15 +6,18 @@
     text-align: center;
     
     height: 60px;
-    width: 90%;
-    max-width: 90%;
+    width: 100%;
+    max-width: 1200px;
     margin-top: 10px;
     border-radius: 15px;
     border: 1px solid black;
     padding: 10px;
+    font-size: $font-size * 1.25;
+
+    background-color: darken($base-color, 10);
 
     &--done {
-        background-color: darken($color: $backgroundcolor, $amount: 10);
+        background-color: $dark-accent-color;
 
         & > span {
             text-decoration: line-through;
@@ -26,12 +29,11 @@
         width: 15px;
         height: 15px;
         border-radius: 15px;
-        background-color: lighten($color: $backgroundcolor, $amount: 50);
+        background-color: $light-accent-color;
         outline: none;
 
         &--checked {
-            margin-bottom: 5px;
-            background-color: darken($backgroundcolor, 10);
+            background-color: $main-brand-color;
         }
     }
 
@@ -55,6 +57,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
         overflow: hidden;
+        text-align: left;
     }
 
     &__due-date {

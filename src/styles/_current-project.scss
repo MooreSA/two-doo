@@ -1,41 +1,34 @@
 .current-project {
     height: 100%;
     width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    padding: 10px;
+    padding: 5px 20px;
 
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex-item (row, nowrap);
     align-items: center;
     justify-content: flex-start;
 
     &__info {
-        display: flex;
-        flex-direction: column;
+        @include flex-item(column, nowrap);
         flex: 1 1 auto;
-        max-width: 90%;
-        max-height: 100%;
+        height: 100%;
     }
 
     &__title {
-        font-size: $font-size * 1.5;
+        font-size: $font-size * 2;
         font-weight: bold;
-        flex: 1 1 content;
+        flex: 1 1 auto;
         max-height: 100%;
         max-width: 100%;
     }
 
     &__desc {
+        flex: 2 1 auto;
+        font-size: $font-size * 1.5;
         max-width: 100%;
         max-height: 100%;
     }
 
     &__edit {
-        @include darkbtn;
-        flex: 2 1 auto;
-        max-width: 75px;
-        margin: auto;
-        // background-color: $alternate-bg-color;
+        @include btn(darken($base-color, 5));
     }
 }

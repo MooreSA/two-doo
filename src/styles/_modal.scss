@@ -6,39 +6,43 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba($color: #000000, $alpha: 0.4);
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    font-size: $font-size * 1.25;
 
     &__content {
-        background-color: $backgroundcolor;
+        background-color: darken($base-color, 15);
         width: 75%;
         max-width: 650px;
     
         margin: 15% auto;
-        border: 1px solid $alternate-bg-color;
         border-radius: 15px;
         padding: 20px;
         }
     
     &__header {
-        text-align: left;
+        text-align: center;
         font-size: $font-size * 2;
     }
 
     &__form {
+        padding-top: 10px;
+
         display: grid;
-        grid-template-columns: 15% auto;
+        grid-template-columns: auto 1fr;
         gap: 5px;
     }
 
     &__label {
         text-align: right;
+        padding: 5px;
     }
 
     &__input {
-        background-color: $alternate-bg-color;
+        background-color: darken($base-color, 20);
         border: 0;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px;
+        font-size: $font-size * 1.25;
     }
 
     &__btns {
@@ -49,19 +53,20 @@
     }
 
     &__discard {
-        background-color: orangered;
+        @include btn($color-warning);
+        // border: 1px solid darken($discard-color, 25);
         max-width: 100px;   
         margin: 5px 20px;
     }
 
     &__submit {
-        background-color: green;
+        @include btn($color-success);
         max-width: 100px;
         margin: 5px 20px;
     }
 
     &__delete {
-        background-color: red;
+        @include btn($color-danger);
         max-width: 100px;
         margin: 5px 20px;
     }

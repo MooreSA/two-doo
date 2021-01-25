@@ -91,6 +91,20 @@ const App = () => {
     discardModal();
   }, [projectHandler]);
 
+  useEffect(() => {
+    const modalListener = (event) => {
+      if (event.keyCode === 27) {
+        discardModal();
+      }
+    };
+
+    if (todoModalFlag || editTodoFlag || projectModalFlag || editProjectFlag) {
+      window.addEventListener('keydown', modalListener);
+    } else {
+      window.removeEventListener('keydown', modalListener);
+    }
+  }, [todoModalFlag, editTodoFlag, projectModalFlag, editProjectFlag]);
+
   return (
     <div className="page">
       {/* if the todo modal flag, render it */}
@@ -145,6 +159,9 @@ const App = () => {
           saveEditTodo={saveEditTodo}
         />
       </div>
+      <footer className="footer">
+        Copyright © Seamus Moore 2021
+      </footer>
     </div>
   );
 };
