@@ -8,7 +8,10 @@
     border-right: 1px solid $border-color;
 
     &__new-project {
-        @include btn($light-accent-color);
+        @include btn($dark-shade);
+        color: $base-color;
+
+        width: 80%;
 
         display: block;
         margin: auto;
@@ -30,8 +33,10 @@
         display: block;
         margin-top: 10px;
 
+        width: 80%;
+        max-width: calc(80%);
         overflow: hidden;
-        overflow-wrap: break-word;
+        text-overflow: ellipsis;
         
         &--active {
             @include btn($main-brand-color);

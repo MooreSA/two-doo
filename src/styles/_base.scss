@@ -5,22 +5,23 @@
     src: url('../fonts/NunitoSans-Regular.ttf');
 };
 
-$color-success: #7b9450;
-$color-warning: #f88418;
+$color-info: #313036;
+$color-success: #7dbc6c;
+$color-warning: #faac34;
 $color-danger: #f44336;
 
 // Background color
-$base-color: #FAF9F9;
+$base-color: #EDEBE8;
 // use this to bring attention. It contrasts with everything else
-$light-accent-color: #E9B365;
+$light-accent-color: #8F8576;
 // The "identity" of the page. Use this for branding
-$main-brand-color: #E95551;
+$main-brand-color: #806062;
 // Darker accent color - may not need to use
 // $dark-accent-color: #E3DDDD;
-$dark-accent-color: #98979C;
+$dark-accent-color: #707A6B;
 // This could be the BG for dark themes.
 // Otherwise it's text
-$dark-shade: #44404A;
+$dark-shade: #313036;
 // Just barely visible
 $border-color: darken($base-color, 10);
 $border-emphasis: darken($base-color, 20);
@@ -61,6 +62,7 @@ $font-emphasis: 'Nunito', sans-serif;
 
 html, body, #root {
     height: 100%;
+    max-width: 100%;
 }
 
 

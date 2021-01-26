@@ -11,8 +11,8 @@ const Header = (props) => {
       </div>
       <div className="current-project">
         <div className="current-project__info">
-          <span className="current-project__title">{project.title}</span>
-          <span className="current-project__desc">{project.desc}</span>
+          <div className="current-project__title">{project.title}</div>
+          <div className="current-project__desc">{project.desc}</div>
         </div>
         <button type="button" className="btn current-project__edit" onClick={editProject}>Edit Details</button>
       </div>

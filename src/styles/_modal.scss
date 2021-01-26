@@ -54,7 +54,7 @@
 
     &__discard {
         @include btn($color-warning);
-        // border: 1px solid darken($discard-color, 25);
+        // color: $base-color;
         max-width: 100px;   
         margin: 5px 20px;
     }

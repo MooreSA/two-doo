@@ -14,10 +14,13 @@
     padding: 10px;
     font-size: $font-size * 1.25;
 
-    background-color: darken($base-color, 10);
+    background-color: $base-color;
+    color: $dark-shade;
 
     &--done {
-        background-color: $dark-accent-color;
+        background-color: darken($base-color, 25);
+
+        color: $dark-shade;
 
         & > span {
             text-decoration: line-through;

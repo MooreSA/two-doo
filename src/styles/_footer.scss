@@ -1,4 +1,5 @@
 .footer {
     padding: 10px;
-    background-color: darken($base-color, 10);
+    background-color: $dark-accent-color;
+    color: $base-color;
 }

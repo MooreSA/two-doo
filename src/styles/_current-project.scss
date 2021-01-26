@@ -1,6 +1,7 @@
 .current-project {
     height: 100%;
     width: 100%;
+
     padding: 5px 20px;
 
     @include flex-item (row, nowrap);
@@ -9,26 +10,37 @@
 
     &__info {
         @include flex-item(column, nowrap);
-        flex: 1 1 auto;
+        flex: 9 1 auto;
         height: 100%;
+        width: 100%;
     }
 
     &__title {
         font-size: $font-size * 2;
         font-weight: bold;
-        flex: 1 1 auto;
-        max-height: 100%;
-        max-width: 100%;
+
+        display: inline-block;
+        flex: 2 3 auto;
+        width: 80%;
+        max-width: 600px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__desc {
-        flex: 2 1 auto;
         font-size: $font-size * 1.5;
-        max-width: 100%;
-        max-height: 100%;
+
+        flex: 1 1 auto;
+        display: inline-block;
+        max-width: 500px;
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     &__edit {
+        flex: 1 1 auto;
         @include btn(darken($base-color, 5));
     }
 }
