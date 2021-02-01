@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { useSpring, animated } from 'react-spring';
 import moment from 'moment';
 
 const TodoModal = (props) => {
@@ -13,10 +15,14 @@ const TodoModal = (props) => {
   const {
     saveNewTodo, saveEditTodo, deleteTodo, discardModal,
   } = todoFunctions;
-
   const { title = 'Todo', desc = 'Description', dueDate = new Date() } = todoInfo;
 
   const [newTodo, setNewTodo] = useState({ title, desc, dueDate: moment(dueDate).format('YYYY-MM-DD') });
+
+  const springProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  });
 
   // input values are saved in a state
   // change them through firing an event on changing the input
@@ -40,7 +46,7 @@ const TodoModal = (props) => {
   };
 
   return (
-    <div className="modal__content">
+    <animated.div className="modal__content" style={springProps}>
       <div className="modal__header">Todo</div>
       <div className="modal__form">
         <label className="modal__label" htmlFor="todo-title-input">Title:</label>
@@ -78,7 +84,7 @@ const TodoModal = (props) => {
           ? <button type="button" className="btn modal__delete" onClick={handleDelete}>Delete</button>
           : null}
       </div>
-    </div>
+    </animated.div>
   );
 };
 

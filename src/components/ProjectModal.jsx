@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 
 const ProjectModal = (props) => {
   const {
@@ -13,6 +14,11 @@ const ProjectModal = (props) => {
     deleteProject,
     discardModal,
   } = projectFunctions;
+
+  const springProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  });
 
   const { title = 'Todo List', desc = 'Chores to be done', todos } = projectInfo;
   const [newProject, setNewProject] = useState({ title, desc });
@@ -38,7 +44,7 @@ const ProjectModal = (props) => {
   };
 
   return (
-    <div className="modal__content">
+    <animated.div className="modal__content" style={springProps}>
       <div className="modal__header">Project:</div>
       <div className="modal__form">
         <label className="modal__label" htmlFor="project-title-input">Title:</label>
@@ -67,7 +73,7 @@ const ProjectModal = (props) => {
           ? <button type="button" className="btn modal__delete" onClick={deleteProject}>Delete</button>
           : null}
       </div>
-    </div>
+    </animated.div>
   );
 };
 

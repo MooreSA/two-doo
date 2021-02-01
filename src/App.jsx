@@ -105,42 +105,42 @@ const App = () => {
     }
   }, [todoModalFlag, editTodoFlag, projectModalFlag, editProjectFlag]);
 
+  const modalRender = () => {
+    if (todoModalFlag) {
+      return (
+        <Modal
+          todoFunctions={{ saveNewTodo, discardModal }}
+          discardModal={discardModal}
+        />
+      );
+    } if (editTodoFlag) {
+      return (
+        <Modal
+          todoFunctions={{ saveEditTodo, deleteTodo, discardModal }}
+          index={editTodoFlag.index}
+          todoInfo={editTodoFlag.todoInfo}
+        />
+      );
+    } if (projectModalFlag) {
+      return (
+        <Modal
+          projectFunctions={{ saveNewProject, discardModal }}
+        />
+      );
+    } if (editProjectFlag) {
+      return (
+        <Modal
+          projectFunctions={{ saveEditProject, deleteProject, discardModal }}
+          projectInfo={projectHandler.projects[activeProjectIndex]}
+        />
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="page">
-      {/* if the todo modal flag, render it */}
-      { todoModalFlag
-        ? (
-          <Modal
-            todoFunctions={{ saveNewTodo, discardModal }}
-            discardModal={discardModal}
-          />
-        )
-        : null }
-      { editTodoFlag
-        ? (
-          <Modal
-            todoFunctions={{ saveEditTodo, deleteTodo, discardModal }}
-            index={editTodoFlag.index}
-            todoInfo={editTodoFlag.todoInfo}
-          />
-        )
-        : null }
-      {/* if the projectModalFlag, render the modal */}
-      { projectModalFlag
-        ? (
-          <Modal
-            projectFunctions={{ saveNewProject, discardModal }}
-          />
-        )
-        : null }
-      { editProjectFlag
-        ? (
-          <Modal
-            projectFunctions={{ saveEditProject, deleteProject, discardModal }}
-            projectInfo={projectHandler.projects[activeProjectIndex]}
-          />
-        )
-        : null}
+      {modalRender()}
       <Header
         project={projectHandler.projects[activeProjectIndex]}
         editProject={editProject}
